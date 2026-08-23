@@ -1,5 +1,8 @@
 {
   "name": "Garudaku-Mangaku",
+  "baseUrl": "https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/repo",
+  "nsfw": false,
+  "lang": "id",
   "description": "Extension Tachiyomi Indonesia",
   "extensions": []
 }
