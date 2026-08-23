@@ -61,6 +61,6 @@ abstract class Active :
     companion object {
         private const val PREF_HIDE_LOCKED = "pref_hide_locked_chapters"
 
-        private val LOCKED_URLS_REGEX = """lockedUrls\s*=\s*\[(.*?)]""".toRegex()
+        private val LOCKED_URLS_REGEX = """lockedUrls\s*=\s*\[(.*?)]""".toRegex(RegexOption.DOT_MATCHES_ALL)
     }
     }
