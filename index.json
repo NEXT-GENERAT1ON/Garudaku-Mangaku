@@ -1,6 +1,6 @@
 {
   "name": "Garudaku-Mangaku",
-  "baseUrl": "https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/repo",
+  "baseUrl": "https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/main",
   "author": "NEXT-GENERAT1ON",
   "description": "Extension Tachiyomi Indonesia - Koleksi ekstension untuk membaca komik dari berbagai situs lokal dan internasional",
   "lang": "id",
@@ -16,7 +16,7 @@
       "versionCode": "1",
       "libVersion": "14",
       "language": "id",
-      "icon": "https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/repo/icon/active.png",
+      "icon": "https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/main/icon/active.png",
       "resources": {
         "apkUrl": "https://github.com/NEXT-GENERAT1ON/Garudaku-Mangaku/releases/download/v1.0.0/active-1.0.0.apk",
         "jarUrl": "https://github.com/NEXT-GENERAT1ON/Garudaku-Mangaku/releases/download/v1.0.0/active-1.0.0.jar"
