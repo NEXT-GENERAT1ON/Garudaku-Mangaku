@@ -12,3 +12,16 @@ import org.gradle.api.tasks.TaskAction
 abstract class GenerateKeepRulesTask : DefaultTask() {
 
     @get:Input
+    abstract val applicationId: Property<String>
+
+    @get:OutputDirectory
+    abstract val outputDir: DirectoryProperty
+
+    @TaskAction
+    fun action() {
+        outputDir.get().file("extClass.keep").asFile.apply {
+            parentFile.mkdirs()
+            writeText("-keep class ${applicationId.get()}.ExtensionGenerated { <init>(); }\n")
+        }
+    }
+}
