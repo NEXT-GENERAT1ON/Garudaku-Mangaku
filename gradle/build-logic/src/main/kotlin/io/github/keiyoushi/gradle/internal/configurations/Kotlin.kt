@@ -12,3 +12,17 @@ internal fun Project.configureKotlin() {
     configureJavaCompatibility(kei.versions.java.get().toInt())
 
     kotlin {
+        compilerOptions {
+            optIn.add("kotlinx.serialization.ExperimentalSerializationApi")
+            freeCompilerArgs.add("-Xcontext-parameters")
+        }
+    }
+}
+
+private fun Project.kotlin(block: KotlinBaseExtension.() -> Unit) {
+    extensions.configure(block)
+}
+
+private fun KotlinBaseExtension.compilerOptions(block: KotlinCommonCompilerOptions.() -> Unit) {
+    if (this is HasConfigurableKotlinCompilerOptions<*>) compilerOptions(block)
+}
