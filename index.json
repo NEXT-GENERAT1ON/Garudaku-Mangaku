@@ -1,5 +1,36 @@
 {
   "name": "Garudaku-Mangaku",
-  "description": "Extension Tachiyomi Indonesia",
-  "extensions": []
+  "baseUrl": "https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/repo",
+  "author": "NEXT-GENERAT1ON",
+  "description": "Extension Tachiyomi Indonesia - Koleksi ekstension untuk membaca komik dari berbagai situs lokal dan internasional",
+  "lang": "id",
+  "nsfw": false,
+  "repo": "https://github.com/NEXT-GENERAT1ON/Garudaku-Mangaku",
+  "website": "https://github.com/NEXT-GENERAT1ON/Garudaku-Mangaku",
+  "signingKey": "",
+  "extensions": [
+    {
+      "name": "Example Extension",
+      "packageName": "id.garudaku.mangaku.extension.example",
+      "versionName": "1.0.0",
+      "versionCode": "1",
+      "libVersion": "14",
+      "language": "id",
+      "icon": "https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/repo/icon/example.png",
+      "resources": {
+        "apkUrl": "https://github.com/NEXT-GENERAT1ON/Garudaku-Mangaku/releases/download/v1.0.0/example-1.0.0.apk",
+        "jarUrl": "https://github.com/NEXT-GENERAT1ON/Garudaku-Mangaku/releases/download/v1.0.0/example-1.0.0.jar"
+      },
+      "contentRating": "teen",
+      "sources": [
+        {
+          "id": 1,
+          "name": "Example Site",
+          "lang": "id",
+          "baseUrl": "https://example.com",
+          "icon": "https://example.com/favicon.ico"
+        }
+      ]
+    }
+  ]
 }
