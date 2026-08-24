@@ -2,11 +2,11 @@
   {
     "name": "Active",
     "pkg": "eu.kanade.tachiyomi.extension.id.Active",
-    "apk": "active-1.0.0.apk",
+    "apk": "active-1.6.4.apk",
     "lang": "id",
-    "code": 1,
-    "version": "1.0.0",
-    "nsfw": 0,
+    "code": 4,
+    "version": "1.6.4",
+    "nsfw": 1,
     "sources": [
       {
         "name": "Active",
