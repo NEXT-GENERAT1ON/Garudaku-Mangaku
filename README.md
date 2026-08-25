@@ -5,5 +5,5 @@ Extension Tachiyomi Indonesia
 Json:
 https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/repo/index.json
 
-Pb
+Pb:
 https://raw.githubusercontent.com/NEXT-GENERAT1ON/Garudaku-Mangaku/repo/index.pb
