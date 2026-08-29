@@ -1,6 +1,4 @@
-@file:Suppress("ktlint:standard:package-name")
-
-package eu.kanade.tachiyomi.extension.id.Active
+package eu.kanade.tachiyomi.extension.id.active
 
 import android.content.SharedPreferences
 import androidx.preference.PreferenceScreen
