@@ -14,10 +14,7 @@ import io.github.keiyoushi.gradle.internal.ResolvedSource
 import io.github.keiyoushi.gradle.internal.SourceMetadata
 import io.github.keiyoushi.gradle.internal.VALID_LIB_VERSIONS
 import io.github.keiyoushi.gradle.internal.extensions.alias
-import io.github.keiyoushi.gradle.internal.extensions.compileOnly
-import io.github.keiyoushi.gradle.internal.extensions.implementation
 import io.github.keiyoushi.gradle.internal.extensions.kei
-import io.github.keiyoushi.gradle.internal.extensions.ksp
 import io.github.keiyoushi.gradle.internal.extensions.libs
 import io.github.keiyoushi.gradle.internal.extensions.plugins
 import io.github.keiyoushi.gradle.internal.toMetadata
