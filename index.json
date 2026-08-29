@@ -2,18 +2,17 @@
   {
     "name": "Active",
     "pkg": "eu.kanade.tachiyomi.extension.id.Active",
-    "apk": "active-1.6.4.apk",
+    "apk": "tachiyomi-id.Active-v1.4.36.apk",
     "lang": "id",
-    "code": 4,
-    "version": "1.6.4",
+    "code": 36,
+    "version": "1.4.36",
     "nsfw": 1,
     "sources": [
       {
         "name": "Active",
         "lang": "id",
-        "id": "8930065982044129045",
-        "baseUrl": "https://active.biz.id"
-        "iconUrl": "https://active.biz.id/favicon.ico"
+        "id": "8732241976245924709",
+        "baseUrl": "https://active.biz.id/"
       }
     ]
   }
