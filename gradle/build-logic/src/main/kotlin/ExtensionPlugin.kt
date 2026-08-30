@@ -242,10 +242,10 @@ class ExtensionPlugin : Plugin<Project> {
 
         dependencies {
             addProvider("implementation", keiyoushi.theme.map { project(":lib-multisrc:$it") })
-            implementation(project(":core"))
-            compileOnly(libs.bundles.common)
-            compileOnly(keiyoushi.libVersion.flatMap { if (it == "1.6") libs.tachiyomi.lib.v16 else libs.tachiyomi.lib.v14 })
-            ksp(project(":compiler"))
+            add("implementation", project(":core"))
+            add("compileOnly", libs.bundles.common)
+            addProvider("compileOnly", keiyoushi.libVersion.flatMap { if (it == "1.6") libs.tachiyomi.lib.v16 else libs.tachiyomi.lib.v14 })
+            add("ksp", project(":compiler"))
         }
 
         afterEvaluate {
@@ -291,10 +291,6 @@ class ExtensionPlugin : Plugin<Project> {
             val sourceInfoJsonProvider = versionCodeProvider.zip(versionNameProvider) { code, name ->
                 Json.encodeToString(
                     ExtensionMetadata(
-                        // Always the module directory (e.g. "en.example"), even when pkgName
-                        // is overridden - the publish pipeline derives the icon path from it.
-                        module = dirSuffix,
-                        theme = keiyoushi.theme.orNull,
                         packageName = packageName,
                         name = extName,
                         versionCode = code,
