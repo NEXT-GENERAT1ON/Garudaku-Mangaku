@@ -6,13 +6,16 @@ plugins {
 
 keiyoushi {
     name = "Akirune"
-    versionCode = 1
-    contentWarning = ContentWarning.SAFE
+    versionCode = 5
+    contentWarning = ContentWarning.NSFW
     libVersion = "1.4"
+    // NOTE: removed `theme = "mangathemesia"` — Akirune runs on Blogger with the
+    // "ZeistManga" template, not WordPress, so the MangaThemesia theme class
+    // does not apply here. This source has its own standalone implementation
+    // instead of inheriting a shared multisrc theme.
 
     source {
         lang = "id"
-        baseUrl = "https://www.akirune.my.id/?m=1"
-        id = 1625234883208715743L
+        baseUrl = "https://www.akirune.my.id"
     }
 }
