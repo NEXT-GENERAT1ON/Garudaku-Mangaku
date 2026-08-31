@@ -1,7 +1,5 @@
 import com.android.build.api.dsl.LibraryExtension
 import io.github.keiyoushi.gradle.internal.extensions.alias
-import io.github.keiyoushi.gradle.internal.extensions.compileOnly
-import io.github.keiyoushi.gradle.internal.extensions.implementation
 import io.github.keiyoushi.gradle.internal.extensions.kei
 import io.github.keiyoushi.gradle.internal.extensions.libs
 import io.github.keiyoushi.gradle.internal.extensions.plugins
@@ -39,9 +37,9 @@ class LibraryPlugin : Plugin<Project> {
         }
 
         dependencies {
-            compileOnly(libs.bundles.common)
-            compileOnly(libs.tachiyomi.lib.v16)
-            implementation(project(":core"))
+            add("compileOnly", libs.bundles.common)
+            add("compileOnly", libs.tachiyomi.lib.v16)
+            add("implementation", project(":core"))
         }
     }
 }

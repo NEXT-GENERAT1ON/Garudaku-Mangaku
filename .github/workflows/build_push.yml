@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -30,6 +30,9 @@ jobs:
 
       - name: Decode signing key
         run: echo "${{ secrets.SIGNING_KEY }}" | base64 -d > signingkey.jks
+
+      - name: Auto-fix code formatting
+        run: ./gradlew spotlessApply
 
       - name: Find extension modules
         id: modules
@@ -62,6 +65,55 @@ jobs:
           echo ""
           echo "=== File metadata source, kalau ada ==="
           find . -iname "*source-info*.json" -exec sh -c 'echo "--- {} ---"; cat "{}"; echo' \; || echo "(tidak ada file source-info ketemu)"
+
+      - name: Generate index.json and publish
+        run: |
+          python3 << 'PYEOF'
+          import json, glob, os, shutil
+
+          extensions = []
+          for info_path in glob.glob("**/build/keiyoushi-source-info.json", recursive=True):
+              with open(info_path) as f:
+                  info = json.load(f)
+              module_dir = info_path.split("/build/")[0]
+              apk_matches = glob.glob(f"{module_dir}/build/outputs/apk/release/*.apk")
+              if not apk_matches:
+                  continue
+              apk_path = apk_matches[0]
+              apk_name = os.path.basename(apk_path)
+              shutil.copy(apk_path, apk_name)
+
+              extensions.append({
+                  "name": info["name"],
+                  "pkg": info["packageName"],
+                  "apk": apk_name,
+                  "lang": info["sources"][0]["lang"] if info["sources"] else "all",
+                  "code": info["versionCode"],
+                  "version": info["versionName"],
+                  "nsfw": 1 if info.get("contentWarning", 0) != 0 else 0,
+                  "sources": [
+                      {
+                          "name": s["name"],
+                          "lang": s["lang"],
+                          "id": str(s["id"]),
+                          "baseUrl": s["baseUrl"],
+                      }
+                      for s in info["sources"]
+                  ],
+              })
+
+          with open("index.json", "w") as f:
+              json.dump(extensions, f, indent=2)
+          print(json.dumps(extensions, indent=2))
+          PYEOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.json *.apk
+          git diff --staged --quiet && echo "Tidak ada perubahan" || git commit -m "Publish extension build [skip ci]"
+          git diff --staged --quiet || git push
 
       - name: Upload build output
         uses: actions/upload-artifact@v7
